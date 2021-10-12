@@ -15,20 +15,27 @@ def should_resize(img, max_width):
     else:
         return True
 
+
 def resize_width(image, max_width):
     img = image.copy()
     img_size = img.size
-        
+
     new_height = int(math.ceil((max_width / img_size[0]) * img_size[1]))
     img.thumbnail(size=(max_width, new_height))
     return img
+
+
+def get_glob_paths(p):
+    path = f"{p[0]}/*.{p[1]}"
+    return path
+
 
 def generate_glob_paths(images_directories, images_formats):
     # Generate all the possible convinations for directories and formats
     product_result = list(product(images_directories, images_formats))
     # Create the actual list of strings for glob
-    get_glob_paths = lambda p : f"{p[0]}/*.{p[1]}"
     return [get_glob_paths(p) for p in product_result]
+
 
 # Naive validation
 def to_int(value):
@@ -38,15 +45,19 @@ def to_int(value):
         print(f"{value} is not a number")
         sys.exit(1)
 
+
 def to_arr(value):
     return [x.strip() for x in value.split(',')]
+
 
 def debug():
     return os.environ["DEBUG"] == "True"
 
+
 def print_debug(msg):
     if debug():
         print(msg)
+
 
 def main():
 
@@ -71,7 +82,6 @@ def main():
     print_debug(f"images_suffix= {images_suffix}")
     print_debug(f"paths= {paths}")
 
-
     result = []
     for path in paths:
         print_debug(f"Opening images: {path}")
@@ -85,15 +95,17 @@ def main():
 
                 image_raw_name = image.filename.rsplit('.', 1)[0]
                 image_path = image_raw_name.rsplit('/', 1)[0]
-                image_name = image_raw_name.rsplit('/', 1)[1]
-                image_format = image.filename.rsplit('.', 1)[1]
+                name = image_raw_name.rsplit('/', 1)[1]
+                format = image.filename.rsplit('.', 1)[1]
 
-                new_name = f"{image_path}/{images_prefix}{image_name}{images_suffix}.{image_format}"
-                img.save(new_name, optimize=True, quality=images_quality)
+                new_name = f"{images_prefix}{name}{images_suffix}.{format}"
+                new_path = f"{image_path}/{new_name}"
+                img.save(new_path, optimize=True, quality=images_quality)
                 result.append(new_name)
-    
+
     print(f"::set-output name=result::{result}")
     sys.exit(0)
+
 
 if __name__ == "__main__":
     main()

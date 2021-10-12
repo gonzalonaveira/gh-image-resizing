@@ -11,12 +11,12 @@ jobs:
         # Put your action repo here
         uses: gonzalonaveira/gh-image-resizing@master
         with:
-          IMAGES_MAX_WIDTH="1500"
-          IMAGES_QUALITY="90"
-          IMAGES_FORMATS="jpg, jpge, png"
-          IMAGES_DIRECTORIES="tests/path_1, tests/path_2"
-          IMAGES_PREFIX="prefix"
-          IMAGES_SUFFIX="suffix"
+          IMAGES_MAX_WIDTH: "1500"
+          IMAGES_QUALITY: "90"
+          IMAGES_FORMATS: "jpg, jpge, png"
+          IMAGES_DIRECTORIES: "tests/path_1, tests/path_2"
+          IMAGES_PREFIX: "prefix"
+          IMAGES_SUFFIX: "suffix"
 
       - name: Check outputs
         run: |

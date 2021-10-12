@@ -35,5 +35,5 @@ ADD . /
 WORKDIR /
 
 ENV PYTHONPATH /
-# CMD ["python3", "main.py"]
-CMD ["bash", "test"]
+CMD ["python3", "main.py"]
+# CMD ["bash", "test"]

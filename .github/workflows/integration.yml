@@ -13,4 +13,4 @@ jobs:
 
       - name: Check outputs
         run: |
-          test "${{ steps.selftest.outputs.result }}" == "Hello world"
+          test "${{ steps.selftest.outputs.result }}" == "['prefixshould_resize_hatsuffix.png', 'prefixshould_resize_sky_2suffix.jpg', 'prefixshould_not_resize_umbrellasuffix.png']"

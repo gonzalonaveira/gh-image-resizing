@@ -1,7 +1,6 @@
 import sys
 from PIL import Image
 import os
-import glob
 import math
 from itertools import product
 import glob

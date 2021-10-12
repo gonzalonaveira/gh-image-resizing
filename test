@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Running test"
+
+DEBUG="True" \
+IMAGES_MAX_WIDTH="1500" \
+IMAGES_QUALITY="90" \
+IMAGES_FORMATS="jpg, jpge, png" \
+IMAGES_DIRECTORIES="tests/path_1, tests/path_2" \
+IMAGES_PREFIX="prefix" \
+IMAGES_SUFFIX="suffix" \
+python3 main.py

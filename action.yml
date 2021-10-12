@@ -1,0 +1,33 @@
+name: "Resize images"
+description: "Action to resize and compress images to a max width"
+author: "Gonzalo Naveira"
+inputs:
+  IMAGES_MAX_WIDTH:
+    description: "Max width the images can have"
+    required: true
+  IMAGES_QUALITY:
+    description: "The quality to compress the image"
+    required: false
+    default: 100
+  IMAGES_FORMATS:
+    description: "Image formats we want to resize (Comma separated)"
+    required: true
+    default: "jpg, jpge, png"
+  IMAGES_DIRECTORIES:
+    description: "Image directories we want to resize (Comma separated)"
+    required: true
+  IMAGES_PREFIX:
+    description: "Image prefix to rename"
+    required: false
+    default: ""
+  IMAGES_SUFFIX:
+    description: "Image suffix to rename"
+    required: false
+    default: ""
+
+outputs:
+  result:
+    description: "Number of images resized"
+runs:
+  using: "docker"
+  image: "Dockerfile"

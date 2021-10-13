@@ -50,7 +50,7 @@ def to_arr(value):
 
 
 def debug():
-    return os.environ["DEBUG"] == "True"
+    return get_env("DEBUG") == "True"
 
 
 def print_debug(msg):
@@ -58,19 +58,23 @@ def print_debug(msg):
         print(msg)
 
 
+def get_env(key):
+    return os.environ[f"INPUT_{key}"]
+
+
 def main():
 
-    print(os.environ)
+    print_debug(os.environ)
     # Arguments
-    images_max_width = to_int(os.environ["IMAGES_MAX_WIDTH"])
-    images_quality = to_int(os.environ["IMAGES_QUALITY"])
+    images_max_width = to_int(get_env("IMAGES_MAX_WIDTH"))
+    images_quality = to_int(get_env("IMAGES_QUALITY"))
 
-    images_formats = to_arr(os.environ["IMAGES_FORMATS"])
-    images_directories = to_arr(os.environ["IMAGES_DIRECTORIES"])
+    images_formats = to_arr(get_env("IMAGES_FORMATS"))
+    images_directories = to_arr(get_env("IMAGES_DIRECTORIES"))
 
     # If these are empty it would replace the original image
-    images_prefix = os.environ["IMAGES_PREFIX"]
-    images_suffix = os.environ["IMAGES_SUFFIX"]
+    images_prefix = get_env("IMAGES_PREFIX")
+    images_suffix = get_env("IMAGES_SUFFIX")
 
     paths = generate_glob_paths(images_directories, images_formats)
 

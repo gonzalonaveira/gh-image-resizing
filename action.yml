@@ -2,6 +2,10 @@ name: "Resize images"
 description: "Action to resize and compress images to a max width"
 author: "Gonzalo Naveira"
 inputs:
+  DEBUG:
+    description: "Enables debug mode"
+    required: false
+    default: "False"
   IMAGES_MAX_WIDTH:
     description: "Max width the images can have"
     required: true

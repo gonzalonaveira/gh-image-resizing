@@ -33,7 +33,8 @@ FROM builder
 # set work directory
 ADD . /
 WORKDIR /
+ENV PYTHONPATH /
 
 ENV PYTHONPATH /
-CMD ["python3", "main.py"]
+CMD ["/main.py"]
 # CMD ["bash", "test"]

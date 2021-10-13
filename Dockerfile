@@ -31,8 +31,9 @@ RUN pip install Pillow
 
 FROM builder
 # set work directory
-ADD . /
-WORKDIR /
-ENV PYTHONPATH /
+ADD . /app
+WORKDIR /app
 
-CMD ["/main.py"]
+ENV PYTHONPATH /app
+
+CMD ["/app/main.py"]

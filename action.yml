@@ -1,6 +1,8 @@
 name: "Resize images"
 description: "Action to resize and compress images to a max width"
 author: "Gonzalo Naveira"
+icon: 'image'  
+color: 'yellow'
 inputs:
   DEBUG:
     description: "Enables debug mode"

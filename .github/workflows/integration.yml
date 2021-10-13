@@ -4,16 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    
-      - name: "Show environmetn variables"
-        run: |
-          env
 
       - uses: actions/checkout@master
       - name: Self test
         id: selftest
 
-        # Put your action repo here
+        # Integration test
         uses: gonzalonaveira/gh-image-resizing@master
         with:
           DEBUG: "True"

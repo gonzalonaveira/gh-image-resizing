@@ -60,6 +60,7 @@ def print_debug(msg):
 
 def main():
 
+    print_debug(os.environ)
     # Arguments
     images_max_width = to_int(os.environ["IMAGES_MAX_WIDTH"])
     images_quality = to_int(os.environ["IMAGES_QUALITY"])

@@ -38,4 +38,4 @@ ENV PYTHONPATH /app
 
 RUN chmod +x "/app/main.py"
 
-CMD ["/app/main.py"]
+CMD ["python", "/app/main.py"]

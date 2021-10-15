@@ -36,4 +36,6 @@ WORKDIR /app
 
 ENV PYTHONPATH /app
 
+RUN chmod +x "/app/main.py"
+
 CMD ["/app/main.py"]
